@@ -1,4 +1,7 @@
 package prog2.model;
 
-public class CamiTerra {
+public class CamiTerra extends AccesTerra {
+    public boolean isAccessibilitat() {
+        return false;
+    }
 }

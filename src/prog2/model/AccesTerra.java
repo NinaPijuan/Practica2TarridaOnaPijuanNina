@@ -1,4 +1,5 @@
 package prog2.model;
 
-public class AccesTerra {
+public abstract class AccesTerra extends Acces {
+    float longitud;
 }

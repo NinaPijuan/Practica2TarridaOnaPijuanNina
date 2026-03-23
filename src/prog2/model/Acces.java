@@ -1,6 +1,11 @@
 package prog2.model;
 
-public class Acces implements InAcces {
+public abstract class Acces implements InAcces {
+
+    private String nom;
+    private boolean accesibilitat;
+    private boolean estat; // obert o tancat
+    private LlistaAllotjaments llistaAllotjaments;
 
     /**
      * Afegeix un allotjament rebut com a paràmetre a la llista d'allotjaments de l'accés
