@@ -1,5 +1,7 @@
 package prog2.model;
 
+import prog2.vista.ExcepcioCamping;
+
 public class LlistaAccessos implements InLlistaAccessos {
     /**
      * Afegeix un accés rebut per paràmetre a la llista d'accessos.

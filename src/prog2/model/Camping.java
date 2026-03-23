@@ -1,5 +1,7 @@
 package prog2.model;
 
+import prog2.vista.ExcepcioCamping;
+
 /**
  * metode faegir tasca manteniment
  * completar tasca manteniment

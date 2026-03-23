@@ -1,5 +1,7 @@
 package prog2.model;
 
+import prog2.vista.ExcepcioCamping;
+
 public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
     /**
      * Aquest mètode crea una tasca de manteniment amb la informació passada com a paràmetres

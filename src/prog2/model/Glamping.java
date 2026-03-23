@@ -14,7 +14,7 @@ public class Glamping extends Casa {
      * @param material
      * @param casaMascota
      */
-    public Glamping(String nom, String id, String mida, int numHab, int capacitat, String material, boolean casaMascota){
+    public Glamping(String nom, String id, float mida, int numHab, int capacitat, String material, boolean casaMascota){
         super(nom, id, 3, 3, mida, numHab, capacitat);
         this.material = material;
         this.casaMascota = casaMascota;
@@ -54,4 +54,21 @@ public class Glamping extends Casa {
     public boolean correcteFuncionament(){ return casaMascota; }
 
 
+    /**
+     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
+     *
+     * @param tasca Objecte de tipus TascaManteniment.
+     */
+    @Override
+    public void tancarAllotjament(TascaManteniment tasca) {
+
+    }
+
+    /**
+     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
+     */
+    @Override
+    public void obrirAllotjament() {
+
+    }
 }

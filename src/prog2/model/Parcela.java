@@ -13,7 +13,7 @@ public class Parcela extends Allotjament {
      * @param mida
      * @param connexioElectrica
      */
-    public Parcela(String nom, String id, float mida, boolean connexioElectrica){
+    public Parcela(String nom, String id, boolean operatiu, String iluminacio, float mida, boolean connexioElectrica){
         super(nom, id, 4, 2);
         this.mida = mida;
         this.connexioElectrica = connexioElectrica;
@@ -68,4 +68,22 @@ public class Parcela extends Allotjament {
      * @return connexioElectrica
      */
     public boolean isConnexioElectrica() { return connexioElectrica;}
+
+    /**
+     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
+     *
+     * @param tasca Objecte de tipus TascaManteniment.
+     */
+    @Override
+    public void tancarAllotjament(TascaManteniment tasca) {
+
+    }
+
+    /**
+     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
+     */
+    @Override
+    public void obrirAllotjament() {
+
+    }
 }

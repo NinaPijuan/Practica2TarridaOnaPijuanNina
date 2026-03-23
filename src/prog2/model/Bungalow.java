@@ -1,8 +1,6 @@
 package prog2.model;
 
 
-import prog2.model.Casa;
-
 public class Bungalow extends Casa {
 
     private int parquing; // 1 o 2
@@ -22,7 +20,7 @@ public class Bungalow extends Casa {
      * @param tele
      * @param aire
      */
-    public Bungalow(String nom, String id, String mida, int numHab, int capacitat, int parquing, boolean terrassa, boolean tele, boolean aire){
+    public Bungalow(String nom, String id, float mida, int numHab, int capacitat, int parquing, boolean terrassa, boolean tele, boolean aire){
         super(nom, id, 7, 4, mida, numHab, capacitat);
         this.parquing = parquing;
         this.terrassa = terrassa;
@@ -64,4 +62,21 @@ public class Bungalow extends Casa {
     @Override
     public boolean correcteFuncionament(){ return aire; }
 
+    /**
+     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
+     *
+     * @param tasca Objecte de tipus TascaManteniment.
+     */
+    @Override
+    public void tancarAllotjament(TascaManteniment tasca) {
+
+    }
+
+    /**
+     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
+     */
+    @Override
+    public void obrirAllotjament() {
+
+    }
 }

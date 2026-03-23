@@ -1,6 +1,8 @@
 package prog2.model;
 
 public class TascaManteniment implements InTascaManteniment {
+    public static enum TipusTascaManteniment { Reparacio, Neteja, RevisioTecnica, Desinfeccio };
+    private TipusTascaManteniment tipus;
     /**
      * Retorna el número identificador de la tasca.
      *

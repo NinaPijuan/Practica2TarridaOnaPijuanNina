@@ -1,5 +1,7 @@
 package prog2.model;
 
+import prog2.vista.ExcepcioCamping;
+
 public class LlistaAllotjaments implements InLlistaAllotjaments {
     /**
      * Afegeix un allotjament rebut per paràmetre a la llista d'allotjaments.

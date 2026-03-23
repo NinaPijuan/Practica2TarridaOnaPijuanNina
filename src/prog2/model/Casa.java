@@ -15,7 +15,7 @@ abstract class Casa extends Allotjament {
      * @param numHab
      * @param capacitat
      */
-    public Casa(String nom, String id, int tempsMinAlta, int tempsMinBaixa, String mida, int numHab, int capacitat){
+    public Casa(String nom, String id, int tempsMinAlta, int tempsMinBaixa, float mida, int numHab, int capacitat){
         super(nom, id, tempsMinAlta, tempsMinBaixa);
         this.mida = mida;
         this.numHab = numHab;
