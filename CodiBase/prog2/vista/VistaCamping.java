@@ -1,6 +1,6 @@
-package prog2.model.prog2.vista;
+package prog2.vista;
 
-import prog2.model.prog2.model.Camping;
+import prog2.model.Camping;
 
 /**
  * MÈTODE GESTIÓCAMPING

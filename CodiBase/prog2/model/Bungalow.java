@@ -1,7 +1,7 @@
-package prog2.model.prog2.model;
+package prog2.model;
 
 
-import prog2.model.prog2.Casa;
+import prog2.model.Casa;
 
 public class Bungalow extends Casa {
 

@@ -1,4 +1,4 @@
-package prog2.model.prog2.vista;
+package prog2.vista;
 
 /**
  *

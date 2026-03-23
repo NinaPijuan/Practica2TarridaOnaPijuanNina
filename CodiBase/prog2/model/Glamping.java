@@ -1,4 +1,4 @@
-package prog2.model.prog2.model;
+package prog2.model;
 
 public class Glamping extends Casa {
     private String material; // tela o fusta

@@ -1,9 +1,9 @@
-package prog2.model.prog2.model;
+package prog2.model;
 
 
 abstract class Casa extends Allotjament {
 
-    private String mida; // petita, mitjana i gran
+    private float mida; // m2
     private int numHab;
     private int capacitat;
 
