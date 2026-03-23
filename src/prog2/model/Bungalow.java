@@ -20,8 +20,8 @@ public class Bungalow extends Casa {
      * @param tele
      * @param aire
      */
-    public Bungalow(String nom, String id, float mida, int numHab, int capacitat, int parquing, boolean terrassa, boolean tele, boolean aire){
-        super(nom, id, 7, 4, mida, numHab, capacitat);
+    public Bungalow(String nom, String id, boolean operatiu, String iluminacio, float mida, int numHab, int capacitat, int parquing, boolean terrassa, boolean tele, boolean aire){
+        super(nom, id, 7, 4, operatiu, iluminacio, mida, numHab, capacitat);
         this.parquing = parquing;
         this.terrassa = terrassa;
         this.tele = tele;

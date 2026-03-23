@@ -14,7 +14,7 @@ public class Parcela extends Allotjament {
      * @param connexioElectrica
      */
     public Parcela(String nom, String id, boolean operatiu, String iluminacio, float mida, boolean connexioElectrica){
-        super(nom, id, 4, 2);
+        super(nom, id, 4, 2, operatiu, iluminacio);
         this.mida = mida;
         this.connexioElectrica = connexioElectrica;
     }

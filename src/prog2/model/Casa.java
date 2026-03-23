@@ -15,8 +15,8 @@ abstract class Casa extends Allotjament {
      * @param numHab
      * @param capacitat
      */
-    public Casa(String nom, String id, int tempsMinAlta, int tempsMinBaixa, float mida, int numHab, int capacitat){
-        super(nom, id, tempsMinAlta, tempsMinBaixa);
+    public Casa(String nom, String id, int tempsMinAlta, int tempsMinBaixa, boolean operatiu, String iluminacio, float mida, int numHab, int capacitat){
+        super(nom, id, tempsMinAlta, tempsMinBaixa, operatiu, iluminacio);
         this.mida = mida;
         this.numHab = numHab;
         this.capacitat = capacitat;
@@ -26,13 +26,13 @@ abstract class Casa extends Allotjament {
      * Obté la mida de la casa
      * @return 1: petita, 2: mitjana, 3: gran
      */
-    public String getMida(){ return mida; }
+    public float getMida(){ return mida; }
 
     /**
      * Guarda la mida
      * @param mida
      */
-    public void setMida(String mida){ this.mida = mida; }
+    public void setMida(float mida){ this.mida = mida; }
 
     /**
      * Obté el número d'habitacions

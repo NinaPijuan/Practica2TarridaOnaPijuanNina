@@ -14,8 +14,8 @@ public class Glamping extends Casa {
      * @param material
      * @param casaMascota
      */
-    public Glamping(String nom, String id, float mida, int numHab, int capacitat, String material, boolean casaMascota){
-        super(nom, id, 3, 3, mida, numHab, capacitat);
+    public Glamping(String nom, String id, boolean operatiu, String iluminacio, float mida, int numHab, int capacitat, String material, boolean casaMascota){
+        super(nom, id, 3, 3, operatiu, iluminacio, mida, numHab, capacitat);
         this.material = material;
         this.casaMascota = casaMascota;
     }
