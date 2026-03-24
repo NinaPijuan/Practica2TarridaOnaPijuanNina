@@ -6,19 +6,12 @@ import java.util.ArrayList;
 
 public class LlistaAccessos implements InLlistaAccessos {
 
-
-
     private ArrayList<Acces> llistaAccessos;
 
-
-
-
-    public LlistaAccessos(ArrayList<Acces> llistaAccessos) {
-        // Comprovar
-        this.llistaAccessos = llistaAccessos;
-
-
+    public LlistaAccessos() {
+        this.llistaAccessos = new ArrayList<Acces>();
     }
+
     /**
      * Afegeix un accés rebut per paràmetre a la llista d'accessos.
      *

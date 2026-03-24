@@ -12,15 +12,15 @@ import java.util.Iterator;
 public class Camping implements InCamping {
 
     private String nom;
-    private ArrayList<Allotjament> llistaAllotjaments;
-    private ArrayList<Client> llistaClients;
-    private LlistaReserves llistaReserves;
+    private LlistaAllotjaments llistaAllotjaments;
+    private LlistaAccessos llistaAccessos;
+    private LlistaTasquesManteniment llistaTasquesManteniment;
 
     public Camping(String nom) {
         this.nom = nom;
-        this.llistaAllotjaments = new ArrayList<Allotjament>();
-        this.llistaClients = new ArrayList<Client>();
-        this.llistaReserves = new LlistaReserves();
+        this.llistaAllotjaments = new LlistaAllotjaments();
+        this.llistaAccessos = new LlistaAccessos()
+        this.llistaTasquesManteniment = new LlistaTasquesManteniment();
     }
 
     /**

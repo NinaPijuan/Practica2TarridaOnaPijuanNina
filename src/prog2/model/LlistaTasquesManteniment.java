@@ -9,20 +9,9 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
 
     private ArrayList<TascaManteniment> llistaTasquesManteniment;
 
-
-
-
-    public LlistaTasquesManteniment(ArrayList<TascaManteniment> llistaTasquesManteniment) {
-        // Comprovar
-        this.llistaTasquesManteniment = llistaTasquesManteniment;
-
-
+    public LlistaTasquesManteniment() {
+        this.llistaTasquesManteniment = new ArrayList<TascaManteniment>();
     }
-
-
-
-
-
 
     /**
      * Aquest mètode crea una tasca de manteniment amb la informació passada com a paràmetres
@@ -40,16 +29,51 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
     @Override
     public void afegirTascaManteniment(int num, String tipus, Allotjament allotjament, String data, int dies) throws ExcepcioCamping {
 
-        TascaManteniment.TipusTascaManteniment enumTasca = TascaManteniment.TipusTascaManteniment.valueOf(tipus);
+        // Comprovar que el tipus de tasca existeix
+        TascaManteniment.TipusTascaManteniment enumTasca;
+        try {
+            enumTasca = TascaManteniment.TipusTascaManteniment.valueOf(tipus);
+        } catch (IllegalArgumentException e) {
+            throw new ExcepcioCamping("El tipus de tasca no existeix" + tipus);
+        }
 
+        // Comprovar que l'allotjament no té ja una tasca
+        for (int i = 0; i < llistaTasquesManteniment.size(); i++) {
+            if(llistaTasquesManteniment.get(i).getAllotjament().equals(allotjament)) {
+                throw new ExcepcioCamping("L'allotjament ja té una tasca pendent");
+            }
+        }
+
+        // Crear la tasca
+        TascaManteniment tasca = new TascaManteniment(num, enumTasca, allotjament, data, dies);
+        llistaTasquesManteniment.add(tasca);
+
+        // Actualitzar l'estat de l'allotjament
+        allotjament.setOperatiu(false);
+
+        // Actualitzar il·luminació
+        switch(enumTasca) {
+            case Reparacio, RevisioTecnica:
+                allotjament.setIluminacio("50%");
+                break;
+            case Neteja:
+                allotjament.setIluminacio("100%");
+                break;
+            case Desinfeccio:
+                allotjament.setIluminacio("0%");
+                break;
+        }
+
+        /*
         if (allotjament.isOperatiu()){
             TascaManteniment tasca =  new TascaManteniment(num, enumTasca, allotjament, data, dies);
             llistaTasquesManteniment.add(tasca);
             allotjament.setOperatiu(false); }
 
         else{ throw new ExcepcioCamping("L'allotjament ja té una tasca pendent"); }
+        */
 
-        // TANCAR ACCESSOS DE L'ALLOTJAMENT
+        // Tancar accessos
 
     }
 
@@ -125,6 +149,10 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
      */
     @Override
     public TascaManteniment getTascaManteniment(int num) throws ExcepcioCamping {
-        return null;
+        for(int i = 0; i < llistaTasquesManteniment.size(); i++) {
+            if(llistaTasquesManteniment.get(i).getNum() == num)
+                return llistaTasquesManteniment.get(i);
+        };
+        throw new ExcepcioCamping("No existeix cap tasca amb el número: " + num);
     }
 }

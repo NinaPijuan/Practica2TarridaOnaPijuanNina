@@ -7,12 +7,8 @@ public class LlistaAllotjaments implements InLlistaAllotjaments {
 
     private ArrayList<Allotjament> llistaAllotjaments;
 
-
-
-
     public LlistaAllotjaments() {
-        // Comprovar
-        this.llistaAllotjaments; // ALGO
+        this.llistaAllotjaments = new ArrayList<Allotjament>();
 
 
     }
