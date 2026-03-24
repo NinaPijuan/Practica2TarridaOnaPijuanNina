@@ -1,6 +1,6 @@
 package prog2.model;
 
-
+// ELS DOS ÚLTIMS MÈTODES JA ESTAN A ALLOTJAMENT, ELS PODEM TREURE D'AKUÍ, NO?
 public class Parcela extends Allotjament {
 
     private float mida; // en m2
@@ -78,6 +78,8 @@ public class Parcela extends Allotjament {
      */
     @Override
     public void tancarAllotjament(TascaManteniment tasca) {
+
+
 
     }
 

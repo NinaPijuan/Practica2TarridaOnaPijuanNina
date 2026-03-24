@@ -4,13 +4,20 @@ import prog2.vista.ExcepcioCamping;
 
 import java.util.ArrayList;
 
+// EL MÈTODE actualitzaEstatAccessos() ELS CANVIA SENSE COMPROVAR SI ESTAN BÉ O NO. HO CANVIEM??
 public class LlistaAccessos implements InLlistaAccessos {
 
     private ArrayList<Acces> llistaAccessos;
 
+
+    /**
+     * Constructor
+     */
     public LlistaAccessos() {
         this.llistaAccessos = new ArrayList<Acces>();
     }
+
+
 
     /**
      * Afegeix un accés rebut per paràmetre a la llista d'accessos.
@@ -41,7 +48,21 @@ public class LlistaAccessos implements InLlistaAccessos {
      */
     @Override
     public String llistarAccessos(boolean estat) throws ExcepcioCamping {
-        return null;
+
+        // Llancem excepció si la llista  és buida
+        if(llistaAccessos.size() == 0){ throw new ExcepcioCamping("No hi ha accessos"); }
+
+        String resultat = "";
+        // Fem un recorregut per concatenar la informació dels accessos k son amb l'estat k volem
+        for (int i = 0; i < llistaAccessos.size(); i++) {
+            if (llistaAccessos.get(i).getEstat() == estat) {
+                resultat += llistaAccessos.toString();
+                resultat += " ";
+            }
+        }
+
+        if (resultat.equals("")){ resultat = "No hi ha accessos " + estat; }
+        return resultat;
     }
 
     /**
@@ -51,6 +72,20 @@ public class LlistaAccessos implements InLlistaAccessos {
      */
     @Override
     public void actualitzaEstatAccessos() throws ExcepcioCamping {
+
+        // Recorrem la llista d'accessos
+        for(int i = 0; i < llistaAccessos.size(); i++){
+            Acces actual = llistaAccessos.get(i);
+
+            // A cada accés li agafem la llista d'allotjaments k connecta
+            LlistaAllotjaments llistaAllotjaments = actual.getAAllotjaments();
+
+            // Amb el mètode cointainsAllo...() de LlistaAllotjaments mirem si connecta algun allot-
+            // jament operatiu, si no -> el tankuem amb el mètode de d'Accés k fa akuesta feina o l'obrim
+            if (!llistaAllotjaments.containsAllotjamentOperatiu()){ actual.tancarAcces(); }
+            else{ actual.obrirAcces(); }
+
+        }
 
     }
 

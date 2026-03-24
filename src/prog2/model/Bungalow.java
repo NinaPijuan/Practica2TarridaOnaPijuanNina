@@ -1,6 +1,6 @@
 package prog2.model;
 
-
+//  ELS DOS ÚLTIMS MÈTODES EM SEMBLA K ELS PODEM TREURE PK JA SÓN A ALLOTJAMENT
 public class Bungalow extends Casa {
 
     private int parquing; // 1 o 2

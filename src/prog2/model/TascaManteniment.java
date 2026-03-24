@@ -19,6 +19,19 @@ public class TascaManteniment implements InTascaManteniment, Serializable {
         this.dies_ = dies_;
     }
 
+
+    @Override
+    public String toString(){
+
+        String id = allotjament_.getId();
+
+        // Passem l'enum a string així:
+        String tipus = tipus_.name();
+
+        return "Número: " + num_ + ", Tipus: " + tipus + ", ID Allotjament: " + id +
+                ", Data: " + data_ + ", Dies: " + dies_;
+
+    }
     /**
      * Retorna el número identificador de la tasca.
      *

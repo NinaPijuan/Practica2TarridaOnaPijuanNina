@@ -7,6 +7,8 @@ public abstract class AccesTerra extends Acces {
         super(nom, estat);
         this.longitud = longitud;
     }
+
+    public float getLongitud() { return longitud; }
     public abstract boolean isAccessibilitat();
 }
 

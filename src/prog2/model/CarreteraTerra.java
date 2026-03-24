@@ -22,6 +22,18 @@ public class CarreteraTerra extends AccesTerra {
 
     @Override
     public String toString() {
-        return super.toString(); // Afegir
+
+            String acces = isAccessibilitat() ? "Sí" : "No";
+
+            String allotjaments = "";
+
+
+            for(int i = 0; i < getAAllotjaments().getLlistaAllotjaments().size(); i++){
+                allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getNom();
+                allotjaments += " ";
+            }
+            return super.toString() + "Tipus: Carretera de terra, Longitud: " + getLongitud() + ", Amplada: "
+                    + amplada + " metres, Accessibilitat: " + acces + ", Allotjaments: " + allotjaments + ".";
+        }
     }
-}
+

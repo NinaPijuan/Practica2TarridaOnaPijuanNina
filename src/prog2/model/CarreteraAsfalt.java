@@ -1,6 +1,7 @@
 package prog2.model;
 
 public class CarreteraAsfalt extends AccesAsfalt {
+
     private float pesMax;
 
     public CarreteraAsfalt(String nom, boolean estat, float m2Asfalt, float pesMax) {
@@ -22,6 +23,15 @@ public class CarreteraAsfalt extends AccesAsfalt {
 
     @Override
     public String toString() {
-        return super.toString(); // Afegir
+
+        String acces = isAccessibilitat() ? "Sí" : "No";
+
+        String allotjaments = "";
+        for(int i = 0; i < getAAllotjaments().getLlistaAllotjaments().size(); i++){
+            allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getNom();
+            allotjaments += " ";
+        }
+        return super.toString() + "Tipus: Carretera asfaltada, Metres quadrats: " + getM2Asfalt() +
+                ", Pes màxim: " + pesMax + ", Accessibilitat: " + acces + ", Allotjaments: " + allotjaments + ".";
     }
 }

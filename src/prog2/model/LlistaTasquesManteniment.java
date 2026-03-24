@@ -73,7 +73,7 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
         else{ throw new ExcepcioCamping("L'allotjament ja té una tasca pendent"); }
         */
 
-        // Tancar accessos
+
 
     }
 
@@ -126,14 +126,13 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
 
         else{
             Iterator<TascaManteniment> itrTasca = llistaTasquesManteniment.iterator();
-
             while(itrTasca.hasNext()){
 
                 TascaManteniment actual = itrTasca.next();
                 resultat += actual.toString();
+                resultat += " ";
             }
         }
-
         return resultat;
     }
 
