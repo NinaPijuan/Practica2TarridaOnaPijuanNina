@@ -1,6 +1,10 @@
 package prog2.model;
 
-public class TascaManteniment implements InTascaManteniment {
+import com.sun.source.doctree.SerialDataTree;
+
+import java.io.Serializable;
+
+public class TascaManteniment implements InTascaManteniment, Serializable {
     private int num_, dies_;
     private Allotjament allotjament_;
     private String data_;

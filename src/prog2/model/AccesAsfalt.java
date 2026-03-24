@@ -7,4 +7,8 @@ public abstract class AccesAsfalt extends Acces {
         super(nom, estat);
         this.m2Asfalt = m2Asfalt;
     }
+    public abstract boolean isAccessibilitat();
 }
+
+
+

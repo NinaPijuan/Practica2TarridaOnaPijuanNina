@@ -1,8 +1,22 @@
 package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
+import java.util.ArrayList;
 
 public class LlistaAllotjaments implements InLlistaAllotjaments {
+
+    private ArrayList<Allotjament> llistaAllotjaments;
+
+
+
+
+    public LlistaAllotjaments() {
+        // Comprovar
+        this.llistaAllotjaments; // ALGO
+
+
+    }
+
     /**
      * Afegeix un allotjament rebut per paràmetre a la llista d'allotjaments.
      *

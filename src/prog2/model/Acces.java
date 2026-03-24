@@ -1,15 +1,19 @@
 package prog2.model;
 
-public abstract class Acces implements InAcces {
+import java.io.Serializable;
+
+public abstract class Acces implements InAcces, Serializable {
 
     private String nom;
+    private final boolean accessibilitat;
     private boolean estat; // obert o tancat
     private LlistaAllotjaments llistaAllotjaments;
 
     public Acces(String nom, boolean estat) {
         this.nom = nom;
+        this.accessibilitat = isAccessibilitat();
         this.estat = estat;
-        // LlistaAllotjaments??
+        this.llistaAllotjaments = new LlistaAllotjaments();
     }
 
     /**

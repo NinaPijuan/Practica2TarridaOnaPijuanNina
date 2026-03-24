@@ -2,7 +2,28 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
+
+    private ArrayList<TascaManteniment> llistaTasquesManteniment;
+
+
+
+
+    public LlistaTasquesManteniment(ArrayList<TascaManteniment> llistaTasquesManteniment) {
+        // Comprovar
+        this.llistaTasquesManteniment = llistaTasquesManteniment;
+
+
+    }
+
+
+
+
+
+
     /**
      * Aquest mètode crea una tasca de manteniment amb la informació passada com a paràmetres
      * (número d'identificador, tipus, l'allotjament on s'ha produït, la data, i els dies esperats per completar-la) i l'afegeix a la llista.
@@ -19,6 +40,17 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
     @Override
     public void afegirTascaManteniment(int num, String tipus, Allotjament allotjament, String data, int dies) throws ExcepcioCamping {
 
+        TascaManteniment.TipusTascaManteniment enumTasca = TascaManteniment.TipusTascaManteniment.valueOf(tipus);
+
+        if (allotjament.isOperatiu()){
+            TascaManteniment tasca =  new TascaManteniment(num, enumTasca, allotjament, data, dies);
+            llistaTasquesManteniment.add(tasca);
+            allotjament.setOperatiu(false); }
+
+        else{ throw new ExcepcioCamping("L'allotjament ja té una tasca pendent"); }
+
+        // TANCAR ACCESSOS DE L'ALLOTJAMENT
+
     }
 
     /**
@@ -29,6 +61,29 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
      */
     @Override
     public void completarTascaManteniment(TascaManteniment tasca) throws ExcepcioCamping {
+
+        // Creem un iterador
+        Iterator<TascaManteniment> itrTasca = llistaTasquesManteniment.iterator();
+
+        boolean trobada = false;
+        while(!trobada && itrTasca.hasNext()){
+
+            // actual serà la tasca on apunta itrTasca i l'iterador es mou una posició
+            TascaManteniment actual = itrTasca.next();
+            if (actual == tasca) {
+                trobada = true;
+
+                // La borrem de la llista
+                llistaTasquesManteniment.remove(actual);
+
+                // Posem l'allotjament operatiu
+                Allotjament allotjament = tasca.getAllotjament();
+                allotjament.setOperatiu(true);
+            }
+        }
+
+        if(!trobada){ throw new ExcepcioCamping("La tasca no existeix"); }
+
 
     }
 
@@ -41,8 +96,24 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
      */
     @Override
     public String llistarTasquesManteniment() throws ExcepcioCamping {
-        return null;
+
+        String resultat = "";
+        if (llistaTasquesManteniment.size() == 0){ throw new ExcepcioCamping("No hi ha cap tasca de manteniment"); }
+
+        else{
+            Iterator<TascaManteniment> itrTasca = llistaTasquesManteniment.iterator();
+
+            while(itrTasca.hasNext()){
+
+                TascaManteniment actual = itrTasca.next();
+                resultat += actual.toString();
+            }
+        }
+
+        return resultat;
     }
+
+
 
     /**
      * Busca la tasca amb el número rebut per paràmetre i la retorna.
