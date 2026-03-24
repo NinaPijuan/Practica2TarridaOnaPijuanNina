@@ -1,18 +1,18 @@
 package prog2.model;
 
 public class TascaManteniment implements InTascaManteniment {
-    private int num, dies;
-    private Allotjament allotjament;
-    private String data;
+    private int num_, dies_;
+    private Allotjament allotjament_;
+    private String data_;
     public static enum TipusTascaManteniment { Reparacio, Neteja, RevisioTecnica, Desinfeccio };
-    private TipusTascaManteniment tipusTascaManteniment;
+    private TipusTascaManteniment tipus_;
 
-    public TascaManteniment(int num, TipusTascaManteniment tipusTascaManteniment, Allotjament allotjament, String data, int dies) {
-        this.num = num;
-        this.tipusTascaManteniment = tipusTascaManteniment;
-        this.allotjament = allotjament;
-        this.data = data;
-        this.dies = dies;
+    public TascaManteniment(int num_, TipusTascaManteniment tipus_, Allotjament allotjament_, String data_, int dies_) {
+        this.num_ = num_;
+        this.tipus_ = tipus_;
+        this.allotjament_ = allotjament_;
+        this.data_ = data_;
+        this.dies_ = dies_;
     }
 
     /**
@@ -22,7 +22,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public int getNum() {
-        return 0;
+        return num_;
     }
 
     /**
@@ -31,8 +31,8 @@ public class TascaManteniment implements InTascaManteniment {
      * @return TipusTascaManteniment
      */
     @Override
-    public TascaManteniment.TipusTascaManteniment getTipus() {
-        return tipusTascaManteniment;
+    public TipusTascaManteniment getTipus() {
+        return tipus_;
     }
 
     /**
@@ -42,7 +42,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public Allotjament getAllotjament() {
-        return null;
+        return allotjament_;
     }
 
     /**
@@ -52,7 +52,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public String getData() {
-        return null;
+        return data_;
     }
 
     /**
@@ -62,7 +62,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public int getDies() {
-        return 0;
+        return dies_;
     }
 
     /**
@@ -72,7 +72,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public void setNum(int num_) {
-
+        this.num_ = num_;
     }
 
     /**
@@ -81,8 +81,8 @@ public class TascaManteniment implements InTascaManteniment {
      * @param tipus_ Tipus de tasca.
      */
     @Override
-    public void setTipus(TascaManteniment.TipusTascaManteniment tipus_) {
-
+    public void setTipus(TipusTascaManteniment tipus_) {
+        this.tipus_ = tipus_;
     }
 
     /**
@@ -92,7 +92,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public void setAllotjament(Allotjament allotjament_) {
-
+        this.allotjament_ = allotjament_;
     }
 
     /**
@@ -102,7 +102,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public void setData(String data_) {
-
+        this.data_ = data_;
     }
 
     /**
@@ -112,7 +112,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public void setDies(int dies_) {
-
+        this.dies_ = dies_;
     }
 
     /**
@@ -123,6 +123,15 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public String getIluminacioAllotjament() {
-        return null;
+        switch (tipus_) {
+            case Reparacio, RevisioTecnica:
+                return "50%";
+            case Neteja:
+                return "100%";
+            case Desinfeccio:
+                return "0%";
+            default:
+                throw new IllegalStateException("ERROR: " + tipus_);
+        }
     }
 }

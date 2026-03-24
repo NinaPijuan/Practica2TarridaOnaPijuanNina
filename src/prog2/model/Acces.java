@@ -3,14 +3,12 @@ package prog2.model;
 public abstract class Acces implements InAcces {
 
     private String nom;
-    private boolean accesibilitat;
     private boolean estat; // obert o tancat
     private LlistaAllotjaments llistaAllotjaments;
 
-    public Acces(String nom, boolean accesibilitat) {
+    public Acces(String nom, boolean estat) {
         this.nom = nom;
-        this.accesibilitat = accesibilitat;
-        this.estat = true;
+        this.estat = estat;
         // LlistaAllotjaments??
     }
 
