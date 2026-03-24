@@ -49,10 +49,12 @@ public class Parcela extends Allotjament {
      * Una parcel·la té un funcionament correcte si té punt de connexió elèctrica
      * @return true si té electricitat, false si no
      */
-    @Override
+    /* @Override
     public boolean correcteFuncionament(){
         return connexioElectrica;
     }
+
+     */
 
     /**
      * Obté tota la informació de la classe

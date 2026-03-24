@@ -14,9 +14,9 @@ public class IniciadorCamping {
         String nomCamping = "Green";
 
         // Creem un objecte de la vista i li passem el nom del càmping
-        VistaCamping vistaCamping = new VistaCamping(nomCamping);
+        //VistaCamping vistaCamping = new VistaCamping(nomCamping);
      
         // Inicialitzem l'execució de la vista
-        vistaCamping.gestioCamping();
+        //vistaCamping.gestioCamping();
     }
 }

@@ -1,8 +1,20 @@
 package prog2.model;
 
 public class TascaManteniment implements InTascaManteniment {
+    private int num, dies;
+    private Allotjament allotjament;
+    private String data;
     public static enum TipusTascaManteniment { Reparacio, Neteja, RevisioTecnica, Desinfeccio };
-    private TipusTascaManteniment tipus;
+    private TipusTascaManteniment tipusTascaManteniment;
+
+    public TascaManteniment(int num, TipusTascaManteniment tipusTascaManteniment, Allotjament allotjament, String data, int dies) {
+        this.num = num;
+        this.tipusTascaManteniment = tipusTascaManteniment;
+        this.allotjament = allotjament;
+        this.data = data;
+        this.dies = dies;
+    }
+
     /**
      * Retorna el número identificador de la tasca.
      *
@@ -20,7 +32,7 @@ public class TascaManteniment implements InTascaManteniment {
      */
     @Override
     public TascaManteniment.TipusTascaManteniment getTipus() {
-        return null;
+        return tipusTascaManteniment;
     }
 
     /**

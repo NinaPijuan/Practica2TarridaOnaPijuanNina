@@ -30,8 +30,8 @@ public class AccesTest {
 
     @Test
     void comprovarConstructor(){
-        assertEquals(acces1.getNom(), "Acces 1");
-        assertEquals(acces2.getNom(), "Acces 2");
+        assertEquals("Acces 1", acces1.getNom());
+        assertEquals("Acces 2", acces2.getNom());
         assertTrue(acces1.isAccessibilitat());
         assertFalse(acces2.isAccessibilitat());
         assertTrue(acces1.getEstat());

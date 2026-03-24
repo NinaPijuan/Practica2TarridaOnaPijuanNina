@@ -1,6 +1,8 @@
 package prog2.model;
 
 
+import static prog2.model.TascaManteniment.TipusTascaManteniment.*;
+
 public abstract class Allotjament implements InAllotjament {
     private String nom;
     private String id;
@@ -51,7 +53,7 @@ public abstract class Allotjament implements InAllotjament {
      * @param temp la temporada (ALTA o BAIXA).
      * @return el valor de l'estada mínima per a la temporada indicada.
      */
-    public long getEstadaMinima(InAllotjament.Temp temp){
+    public long getEstadaMinima(Temp temp){
         switch (temp){
             case ALTA: return this.estadaMinimaALTA_;
             case BAIXA: return this.estadaMinimaBAIXA_;
@@ -71,13 +73,51 @@ public abstract class Allotjament implements InAllotjament {
         this.estadaMinimaALTA_ = estadaMinimaALTA_;
     }
 
-    /**
-     * Comprova si l'allotjament funciona correctament.
-     * La implementació dependrà dels criteris específics de cada tipus d'allotjament.
-     * @return true si l'allotjament funciona correctament, false altrament.
-     */
-    public abstract boolean correcteFuncionament();
+    public boolean isOperatiu() {
+        return operatiu;
+    }
 
+    public void setOperatiu(boolean operatiu) {
+        this.operatiu = operatiu;
+    }
+
+    public String getIluminacio() {
+        return iluminacio;
+    }
+
+    public void setIluminacio(String iluminacio) {
+        this.iluminacio = iluminacio;
+    }
+
+
+    /**
+     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
+     * @param tasca Objecte de tipus TascaManteniment.
+     */
+    public void tancarAllotjament(TascaManteniment tasca) {
+        operatiu = false;
+        switch (tasca.getTipus()) {
+            case Reparacio, RevisioTecnica:
+                iluminacio = "50%";
+                break;
+            case Neteja:
+                iluminacio = "100%";
+                break;
+            case Desinfeccio:
+                iluminacio = "0%";
+                break;
+            default:
+                throw new IllegalStateException("ERROR: " + tasca);
+        }
+    }
+
+    /**
+     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
+     */
+    public void obrirAllotjament() {
+        operatiu = true;
+        iluminacio = "100%";
+    }
     /**
      * Obté tota la informació de la classe
      * @return un string

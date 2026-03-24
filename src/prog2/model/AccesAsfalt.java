@@ -1,5 +1,10 @@
 package prog2.model;
 
 public abstract class AccesAsfalt extends Acces {
-    float m2Asfalt;
+    private float m2Asfalt;
+
+    public AccesAsfalt(String nom, boolean accesibilitat, float m2Asfalt) {
+        super(nom, accesibilitat);
+        this.m2Asfalt = m2Asfalt;
+    }
 }

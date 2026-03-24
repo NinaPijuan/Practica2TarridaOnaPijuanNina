@@ -7,6 +7,13 @@ public abstract class Acces implements InAcces {
     private boolean estat; // obert o tancat
     private LlistaAllotjaments llistaAllotjaments;
 
+    public Acces(String nom, boolean accesibilitat) {
+        this.nom = nom;
+        this.accesibilitat = accesibilitat;
+        this.estat = true;
+        // LlistaAllotjaments??
+    }
+
     /**
      * Afegeix un allotjament rebut com a paràmetre a la llista d'allotjaments de l'accés
      *
@@ -39,9 +46,7 @@ public abstract class Acces implements InAcces {
      * @return
      */
     @Override
-    public boolean isAccessibilitat() {
-        return false;
-    }
+    public abstract boolean isAccessibilitat();
 
     /**
      * Retorna el nom de l'accés
@@ -50,7 +55,7 @@ public abstract class Acces implements InAcces {
      */
     @Override
     public String getNom() {
-        return null;
+        return nom;
     }
 
     /**
@@ -60,7 +65,7 @@ public abstract class Acces implements InAcces {
      */
     @Override
     public boolean getEstat() {
-        return false;
+        return estat;
     }
 
     /**
