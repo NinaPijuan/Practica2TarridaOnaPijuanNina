@@ -1,9 +1,12 @@
 package prog2.model;
 
 
+import java.io.Serial;
+import java.io.Serializable;
+
 import static prog2.model.TascaManteniment.TipusTascaManteniment.*;
 
-public abstract class Allotjament implements InAllotjament {
+public abstract class Allotjament implements InAllotjament, Serializable {
     private String nom;
     private String id;
     private long estadaMinimaALTA_;
