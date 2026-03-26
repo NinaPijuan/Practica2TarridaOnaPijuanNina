@@ -4,7 +4,6 @@ import prog2.vista.ExcepcioCamping;
 
 import java.util.ArrayList;
 
-// EL MÈTODE actualitzaEstatAccessos() ELS CANVIA SENSE COMPROVAR SI ESTAN BÉ O NO. HO CANVIEM??
 public class LlistaAccessos implements InLlistaAccessos {
 
     private ArrayList<Acces> llistaAccessos;
@@ -28,15 +27,23 @@ public class LlistaAccessos implements InLlistaAccessos {
     @Override
     public void afegirAcces(Acces acc) throws ExcepcioCamping {
 
+        // Comprovem k acc sigui nou:
+        for(int i = 0; i < llistaAccessos.size(); i++){
+            if (llistaAccessos.get(i).getNom().equals(acc.getNom())){
+                throw new ExcepcioCamping(acc.getNom() + " ja existeix"); }
+            }
+
+        // Si no existeix, l'afegim
+        llistaAccessos.add(acc);
+
     }
 
     /**
      * Buida la llista d'accessos
      */
     @Override
-    public void buidar() {
+    public void buidar() { llistaAccessos.clear(); }
 
-    }
 
     /**
      * Itera sobre la llista d'accessos i retorna un String amb la informació de tots els accessos amb l'estat rebut per paràmetre.
@@ -50,18 +57,17 @@ public class LlistaAccessos implements InLlistaAccessos {
     public String llistarAccessos(boolean estat) throws ExcepcioCamping {
 
         // Llancem excepció si la llista  és buida
-        if(llistaAccessos.size() == 0){ throw new ExcepcioCamping("No hi ha accessos"); }
+        if(llistaAccessos.isEmpty()){ throw new ExcepcioCamping("No hi ha accessos"); }
 
         String resultat = "";
         // Fem un recorregut per concatenar la informació dels accessos k son amb l'estat k volem
         for (int i = 0; i < llistaAccessos.size(); i++) {
             if (llistaAccessos.get(i).getEstat() == estat) {
-                resultat += llistaAccessos.toString();
+                resultat += llistaAccessos.get(i).toString();
                 resultat += " ";
             }
         }
 
-        if (resultat.equals("")){ resultat = "No hi ha accessos " + estat; }
         return resultat;
     }
 
@@ -97,7 +103,20 @@ public class LlistaAccessos implements InLlistaAccessos {
      */
     @Override
     public int calculaAccessosNoAccessibles() throws ExcepcioCamping {
-        return 0;
+
+        // Recorre la llista buscant els camins
+        int noAccessibles = 0;
+        for(int i = 0; i < llistaAccessos.size(); i++){
+            Acces acces = llistaAccessos.get(i);
+            if (!acces.isAccessibilitat()) {
+                noAccessibles++;
+            }
+        }
+
+        // Llancem excepció si no hi ha accessos no accessibles
+        if(noAccessibles == 0){ throw new ExcepcioCamping("Tots els accessos són accessibles"); }
+
+        return noAccessibles;
     }
 
     /**
@@ -108,6 +127,19 @@ public class LlistaAccessos implements InLlistaAccessos {
      */
     @Override
     public float calculaMetresTerra() throws ExcepcioCamping {
-        return 0;
+
+        // Recorre la llista buscant els AccesTerra i va sumant les longituds
+        float metresTerra = 0;
+        for(int i = 0; i < llistaAccessos.size(); i++){
+            Acces acces = llistaAccessos.get(i);
+            if (acces instanceof AccesTerra){
+                metresTerra += ((AccesTerra) acces).getLongitud();
+            }
+        }
+
+        // Llancem excepció si no hi ha accessos de terra
+        if(metresTerra == 0){ throw new ExcepcioCamping("No hi ha accessos de terra"); }
+
+        return metresTerra;
     }
 }
