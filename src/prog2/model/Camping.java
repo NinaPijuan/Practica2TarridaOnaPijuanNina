@@ -180,7 +180,7 @@ public class Camping implements InCamping, Serializable {
      * @return Una instància de la classe Camping carregada des del fitxer.
      * @throws ExcepcioCamping
      */
-    static Camping load(String camiOrigen) throws ExcepcioCamping {
+    public static Camping load(String camiOrigen) throws ExcepcioCamping {
 
         // Inicialitzem les variables per poder veure-les dins del try
         Camping camping = null;
@@ -206,6 +206,8 @@ public class Camping implements InCamping, Serializable {
             try {
                 fis.close();
                 ois.close();
+            } catch (NullPointerException e) {
+                throw new ExcepcioCamping("El fitxer no existeix");
             } catch (IOException e) {
                 throw new ExcepcioCamping("No s'ha pogut tancar el fitxer");
             }
@@ -306,11 +308,11 @@ public class Camping implements InCamping, Serializable {
         nom = "Bungalow Nord";
         idAllotjament = "ALL3";
         mida = 22f;
-        int habitacions = 2;
+        int habitacions =2;
         int placesPersones = 4;
         int placesParquing = 1;
         boolean terrassa = true;
-        boolean tv = true;
+        boolean tv= true;
         boolean aireFred = true;
 
         Bungalow ALL3 = new Bungalow(nom, idAllotjament, true, "100%", mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
@@ -322,11 +324,11 @@ public class Camping implements InCamping, Serializable {
         nom = "Bungallow Sud";
         idAllotjament = "ALL4";
         mida = 27f;
-        habitacions = 2;
+        habitacions =2;
         placesPersones = 6;
         placesParquing = 1;
         terrassa = true;
-        tv = true;
+        tv= true;
         aireFred = true;
         boolean serveisExtra = true;
         String codiWifi = "CampingDelMarBP1";
@@ -340,7 +342,7 @@ public class Camping implements InCamping, Serializable {
         nom = "Glamping Nord";
         idAllotjament = "ALL5";
         mida = 20f;
-        habitacions = 1;
+        habitacions =1;
         placesPersones = 2;
         String material = "Tela";
         boolean casaMascota = true;
@@ -355,7 +357,7 @@ public class Camping implements InCamping, Serializable {
         nom = "Mobil-Home Sud";
         idAllotjament = "ALL6";
         mida = 20f;
-        habitacions = 2;
+        habitacions =  2;
         placesPersones = 4;
         boolean terrassaBarbacoa = true;
 
@@ -363,18 +365,14 @@ public class Camping implements InCamping, Serializable {
         llistaAllotjaments.afegirAllotjament(ALL6);
 
         /* Accés */
-        Acc1.afegirAllotjament(ALL1);
-        Acc1.afegirAllotjament(ALL2);
-        Acc2.afegirAllotjament(ALL1);
-        Acc2.afegirAllotjament(ALL2);
+        Acc1.afegirAllotjament(ALL1); Acc1.afegirAllotjament(ALL2);
+        Acc2.afegirAllotjament(ALL1); Acc2.afegirAllotjament(ALL2);
         Acc3.afegirAllotjament(ALL3);
         Acc4.afegirAllotjament(ALL3);
         Acc5.afegirAllotjament(ALL4);
         Acc6.afegirAllotjament(ALL4);
-        Acc7.afegirAllotjament(ALL5);
-        Acc7.afegirAllotjament(ALL6);
-        Acc8.afegirAllotjament(ALL5);
-        Acc8.afegirAllotjament(ALL6);
+        Acc7.afegirAllotjament(ALL5); Acc7.afegirAllotjament(ALL6);
+        Acc8.afegirAllotjament(ALL5); Acc8.afegirAllotjament(ALL6);
         Acc9.afegirAllotjament(ALL2);
         Acc10.afegirAllotjament(ALL2);
         Acc11.afegirAllotjament(ALL6);
@@ -382,184 +380,4 @@ public class Camping implements InCamping, Serializable {
 
     }
 
-
 }
-
-
-
-//    /**
-//     * Retorna la llista d'allotjaments del camping.
-//     * @return llistaAllotjaments
-//     **/
-//    public ArrayList<Allotjament> getLlistaAllotjaments() {
-//        return llistaAllotjaments;
-//    }
-//
-//
-//
-//    /**
-//     * Retorna el número total d'allotjaments del càmping.
-//     * @return el número total d'allotjaments.
-//     */
-//    public int getNumAllotjaments() {
-//        return llistaAllotjaments.size();
-//    }
-//
-//
-//
-//
-//
-//
-//
-//    /**
-//     * Afegeix una nova parcel·la a la llista d'allotjaments.
-//     * @param nom_ el nom de la parcela.
-//     * @param idAllotjament_ l'identificador únic de l'allotjament.
-//     * @param mida la mida de la parcela.
-//     * @param connexioElectrica true si disposa de connexió elèctrica, false altrament.
-//     */
-//    public void afegirParcela(String nom_, String idAllotjament_, boolean operatiu, String iluminacio, float mida, boolean connexioElectrica) {
-//        Parcela p = new Parcela(nom_, idAllotjament_, operatiu, iluminacio, mida, connexioElectrica);
-//        llistaAllotjaments.add(p);
-//    }
-//
-//    /**
-//     * Afegeix un nou bungalow a la llista d'allotjaments.
-//     * @param nom_ el nom del bungalow.
-//     * @param idAllotjament_ l'identificador únic de l'allotjament.
-//     * @param mida la mida del bungalow.
-//     * @param habitacions el nombre d'habitacions del bungalow.
-//     * @param placesPersones el nombre màxim de places per a persones.
-//     * @param placesParquing el nombre de places de pàrquing disponibles.
-//     * @param terrassa true si disposa de terrassa, false altrament.
-//     * @param tv true si disposa de televisió, false altrament.
-//     * @param aireFred true si disposa d'aire condicionat, false altrament.
-//     */
-//    public void afegirBungalow(String nom_, String idAllotjament_, boolean operatiu, String iluminacio, float mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred) {
-//        Bungalow b = new Bungalow(nom_, idAllotjament_, operatiu, iluminacio, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
-//        llistaAllotjaments.add(b);
-//    }
-//
-//    /**
-//     * Afegeix un bungalow premium a la llista d'allotjaments.
-//     * @param serveisExtra true si ofereix serveis extra.
-//     * @param codiWifi el codi de la xarxa Wi-Fi.
-//     * (Altres paràmetres igual que `afegirBungalow`)
-//     */
-//    public void afegirBungalowPremium(String nom_, String idAllotjament_, boolean operatiu, String iluminacio, float mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred, boolean serveisExtra, String codiWifi) {
-//        BungalowPremium bp = new BungalowPremium(nom_, idAllotjament_, operatiu, iluminacio, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
-//        llistaAllotjaments.add(bp);
-//    }
-//
-//    /**
-//     * Afegeix una casa glamping a la llista d'allotjaments.
-//     * @param material el material del que està fet.
-//     * @param casaMascota true si accepta mascotes.
-//     * (Altres paràmetres igual que `afegirBungalow`)
-//     */
-//    public void afegirGlamping(String nom_, String idAllotjament_, boolean operatiu, String iluminacio, float mida, int habitacions, int placesPersones, String material, boolean casaMascota) {
-//        Glamping g = new Glamping(nom_, idAllotjament_, operatiu, iluminacio, mida, habitacions, placesPersones, material, casaMascota);
-//        llistaAllotjaments.add(g);
-//    }
-//
-//    /**
-//     *  Afegeix una mobil-home a la llista d'allotjaments.
-//     * @param terrassaBarbacoa true si disposa de terrassa amb barbacoa.
-//     * (Altres paràmetres igual que `afegirBungalow`)
-//     */
-//    public void afegirMobilHome(String nom_, String idAllotjament_, boolean operatiu, String iluminacio, float mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
-//        MobilHome mh = new MobilHome(nom_, idAllotjament_, operatiu, iluminacio, mida, habitacions, placesPersones, terrassaBarbacoa);
-//        llistaAllotjaments.add(mh);
-//    }
-//
-//
-//
-//    /**
-//     * Recorre la llista de serveis comprovant el correcte funcionament de cadascun d'ells per contar el número de serveis que estan operatius.
-//     * @return el nombre de serveis operatius.
-//     */
-//    public int calculAllotjamentsOperatius() {
-//        int allotjamentsOperatius = 0;
-//
-//        for (int i = 0; i < llistaAllotjaments.size(); i++){
-//            /*
-//            // Per accedir a un ArrayList es fa .get(i) i no [i]
-//            if (llistaAllotjaments.get(i).correcteFuncionament()){
-//                allotjamentsOperatius += 1;
-//            }
-//
-//             */
-//        }
-//
-//        return allotjamentsOperatius;
-//    }
-//
-//
-//    /**
-//     * Cerca i retorna l'allotjament amb estada mínima de la temporada alta més curta.
-//     * @return l'allotjament amb estada mínima de la temporada baixa més curta.
-//     */
-//    public Allotjament getAllotjamentEstadaMesCurta(InAllotjament.Temp temp) {
-//        long min = Integer.MAX_VALUE, estadaMinima;
-//        Allotjament allotjamentMin = null;
-//
-//        // Creem un iterador de la llistaAllotjaments
-//        Iterator<Allotjament> itrAllotjament = llistaAllotjaments.iterator();
-//        while (itrAllotjament.hasNext()) {
-//
-//            // a serà l'Allotjament on apunta itrAllotjament i l'iterador es mou una posició
-//            Allotjament a = itrAllotjament.next();
-//
-//            estadaMinima = a.getEstadaMinima(temp);
-//            if (estadaMinima < min) {
-//                min = estadaMinima;
-//                allotjamentMin = a;
-//            }
-//        }
-//
-//        if(allotjamentMin == null)
-//            throw new RuntimeException();
-//        else return allotjamentMin;
-//    }
-//
-//    /**
-//     * Busca l'allotjament en la llista d'allotjaments segons l'id donat
-//     * @param id id de l'allotjament
-//     * @return Allotjament
-//     * @throws ExcepcioCamping si no existeix l'allotjament
-//     */
-//    public Allotjament buscarAllotjament(String id) throws ExcepcioCamping {
-//
-//        // Creem un iterador de la llistaAllotjaments
-//        Iterator<Allotjament> itrAllotjament = llistaAllotjaments.iterator();
-//        while (itrAllotjament.hasNext()) {
-//
-//            // a serà l'ALlotjament on apunta itrAllotjament i itrAllotjament es mou una posició
-//            Allotjament a = itrAllotjament.next();
-//            if (a.getId().equals(id))
-//                return a;
-//        }
-//        throw new ExcepcioCamping("L'allotjament amb id " + id + " no existeix");
-//    }
-
-
-
-//    /**
-//     * Retorna la temporada segons la data donada
-//     * @param data data donada
-//     * @return ALTA o BAIXA
-//     */
-//    public static InAllotjament.Temp getTemporada(LocalDate data) {
-//
-//        int dia = data.getDayOfMonth();
-//        int mes = data.getMonthValue();
-//
-//        // Temporada alta:
-//        if ((mes > 3 && mes < 9) || (mes == 3 && dia >= 21) || (mes == 9 && dia <= 20))
-//            return InAllotjament.Temp.ALTA;
-//            // Temporada baixa;
-//        else return InAllotjament.Temp.BAIXA;
-//    }
-
-
-

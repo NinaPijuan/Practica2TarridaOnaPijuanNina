@@ -1,6 +1,5 @@
 package prog2.model;
 
-//  ELS DOS ÚLTIMS MÈTODES EM SEMBLA K ELS PODEM TREURE PK JA SÓN A ALLOTJAMENT
 public class Bungalow extends Casa {
 
     private int parquing; // 1 o 2
@@ -31,7 +30,7 @@ public class Bungalow extends Casa {
     /**
      * Getters de places de parquing, terrassa, televisió i sistema d'aire fred
      */
-    public int getPark(){ return parquing; }
+    public int getParquing(){ return parquing; }
     public boolean getTerrassa(){ return terrassa; }
     public boolean getTele(){ return tele; }
     public boolean getAire(){ return aire; }
@@ -39,7 +38,7 @@ public class Bungalow extends Casa {
     /**
      * Setters de places de parquing, terrassa, televisió i sistema d'aire fred
      */
-    public void setParquing(int park){ this.parquing = parquing; }
+    public void setParquing(int parquing){ this.parquing = parquing; }
     public void setTerrassa(boolean terrassa){ this.terrassa = terrassa; }
     public void setTele(boolean tele){ this.tele = tele; }
     public void setAire(boolean aire){ this.aire = aire; }
@@ -50,9 +49,9 @@ public class Bungalow extends Casa {
      */
     @Override
     public String toString(){
-        return super.toString() + ". Bungalow{places de parking= "
+        return super.toString() + ". Bungalow{places de parquing= "
                 + parquing + ", terrassa= " + terrassa + ",tele= " + tele
-                + ", aire= " + aire + ".";
+                + ", aire= " + aire + "}}";
     }
 
     /**
@@ -61,22 +60,4 @@ public class Bungalow extends Casa {
      */
     @Override
     public boolean correcteFuncionament(){ return aire; }
-
-    /**
-     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
-     *
-     * @param tasca Objecte de tipus TascaManteniment.
-     */
-    @Override
-    public void tancarAllotjament(TascaManteniment tasca) {
-
-    }
-
-    /**
-     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
-     */
-    @Override
-    public void obrirAllotjament() {
-
-    }
 }

@@ -12,11 +12,17 @@ public class CamiTerra extends AccesTerra {
         String acces = isAccessibilitat() ? "Sí" : "No";
 
         String allotjaments = "";
-        for(int i = 0; i < getAAllotjaments().getLlistaAllotjaments().size(); i++){
-            allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getNom();
-            allotjaments += " ";
+
+        int midaLlista = getAAllotjaments().getLlistaAllotjaments().size();
+
+        if (midaLlista == 0) allotjaments = "Cap";
+        else {
+            for(int i = 0; i < midaLlista; i++) {
+                allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getId();
+                if (i != midaLlista - 1) allotjaments += ", ";
+            }
         }
-        return super.toString() + "Tipus: Camí de terra, Longitud: " + getLongitud() + ", Accessibilitat: "
+        return super.toString() + ", Tipus: Camí de terra, Longitud: " + getLongitud() + ", Accessibilitat: "
                 + acces + ", Allotjaments: " + allotjaments + ".";
 
     }

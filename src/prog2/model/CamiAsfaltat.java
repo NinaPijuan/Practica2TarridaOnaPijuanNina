@@ -16,12 +16,17 @@ public class CamiAsfaltat extends AccesAsfalt {
 
         String allotjaments = "";
 
-        for(int i = 0; i < getAAllotjaments().getLlistaAllotjaments().size(); i++){
-            allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getNom();
-            allotjaments += " ";
+        int midaLlista = getAAllotjaments().getLlistaAllotjaments().size();
+
+        if (midaLlista == 0) allotjaments = "Cap";
+        else {
+            for(int i = 0; i < midaLlista; i++) {
+                allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getId();
+                if (i != midaLlista - 1) allotjaments += ", ";
+            }
         }
 
-        return super.toString() + "Tipus: Camí asfaltat, Metres quadrats: " + getM2Asfalt() + ", Accessibilitat: " + acces
+        return super.toString() + ", Tipus: Camí asfaltat, Metres quadrats: " + getM2Asfalt() + ", Accessibilitat: " + acces
                 + ", Allotjaments: " + allotjaments + ".";
     }
 }

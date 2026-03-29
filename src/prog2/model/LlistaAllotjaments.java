@@ -70,7 +70,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments, Serializable {
         for(int i = 0; i < llistaAllotjaments.size(); i++){
             if(llistaAllotjaments.get(i).isOperatiu() == estatBoolean){
                 resultat += llistaAllotjaments.get(i).toString();
-                resultat += " ";
+                resultat += "\n";
             }
         }
 

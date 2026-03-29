@@ -23,17 +23,21 @@ public class CarreteraTerra extends AccesTerra {
     @Override
     public String toString() {
 
-            String acces = isAccessibilitat() ? "Sí" : "No";
+        String acces = isAccessibilitat() ? "Sí" : "No";
 
-            String allotjaments = "";
+        String allotjaments = "";
 
+        int midaLlista = getAAllotjaments().getLlistaAllotjaments().size();
 
-            for(int i = 0; i < getAAllotjaments().getLlistaAllotjaments().size(); i++){
-                allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getNom();
-                allotjaments += " ";
+        if (midaLlista == 0) allotjaments = "Cap";
+        else {
+            for (int i = 0; i < midaLlista; i++) {
+                allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getId();
+                if (i != midaLlista - 1) allotjaments += ", ";
             }
-            return super.toString() + "Tipus: Carretera de terra, Longitud: " + getLongitud() + ", Amplada: "
-                    + amplada + " metres, Accessibilitat: " + acces + ", Allotjaments: " + allotjaments + ".";
         }
+        return super.toString() + ", Tipus: Carretera de terra, Longitud: " + getLongitud() + ", Amplada: "
+                + amplada + " metres, Accessibilitat: " + acces + ", Allotjaments: " + allotjaments + ".";
     }
+}
 

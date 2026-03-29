@@ -4,12 +4,6 @@ import prog2.vista.ExcepcioCamping;
 
 import java.io.Serializable;
 
-// EL CHAT DIU K this.accessibilitat = isAccessibilitat() NO ESTÀ BÉ PK AKUEST MÈTODE ES CRIDA ABANS DE SER IMPLEMENTAT
-// LA VERITAT ÉS K TÉ SENTIT EL K DIU PERÒ HO HEM COPIAT DE LA PISSARRA AIXÍ K NO SÉ
-
-// afegirAllotjament() POT DONAR EXCEPCIÓ I NO ESTAVA CONTEMPLAT A InAcces. HO HE AFEGIT ALLÀ I AKUÍ (no sé si es podia fer)
-
-// ELS toStrings() DE CADA ACCÉS HAN KUEDAT RARÍSSIMS.. NO SÉ SI ESTAN BÉ
 public abstract class Acces implements InAcces, Serializable {
 
     private String nom;
@@ -37,7 +31,7 @@ public abstract class Acces implements InAcces, Serializable {
     @Override
     public void afegirAllotjament(Allotjament allotjament) throws ExcepcioCamping{
 
-        // Cridem al mètode de LlistaAllotjaments kue fa akuesta feina
+        // Cridem al mètode de LlistaAllotjaments que fa aquesta feina
         // (a dins ja es comprova si l'allotjament ja està a la llista)
         llistaAllotjaments.afegirAllotjament(allotjament);
     }

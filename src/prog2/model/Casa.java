@@ -71,9 +71,4 @@ abstract class Casa extends Allotjament {
                 mida + ", número habitacions= " +
                 numHab + ", capacitat= " + capacitat;
     }
-
-
-
-
-
 }

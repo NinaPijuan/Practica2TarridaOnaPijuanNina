@@ -35,13 +35,20 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
         try {
             enumTasca = TascaManteniment.TipusTascaManteniment.valueOf(tipus);
         } catch (IllegalArgumentException e) {
-            throw new ExcepcioCamping("El tipus de tasca no existeix" + tipus);
+            throw new ExcepcioCamping("El tipus de tasca no existeix: " + tipus);
         }
 
         // Comprovar que l'allotjament no té ja una tasca
         for (int i = 0; i < llistaTasquesManteniment.size(); i++) {
             if(llistaTasquesManteniment.get(i).getAllotjament().equals(allotjament)) {
                 throw new ExcepcioCamping("L'allotjament ja té una tasca pendent");
+            }
+        }
+
+        // Comprovar que el número de tasca no existeixi
+        for (int i = 0; i < llistaTasquesManteniment.size(); i++) {
+            if (llistaTasquesManteniment.get(i).getNum() == num) {
+                throw new ExcepcioCamping("Ja existeix una tasca amb el número: " + num);
             }
         }
 
@@ -131,7 +138,7 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
 
                 TascaManteniment actual = itrTasca.next();
                 resultat += actual.toString();
-                resultat += " ";
+                resultat += "\n";
             }
         }
         return resultat;

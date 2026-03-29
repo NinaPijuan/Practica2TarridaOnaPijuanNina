@@ -29,7 +29,7 @@ public class MobilHome extends Casa {
      */
     @Override
     public String toString(){
-        return super.toString() + " Mobil-Home{Terrassa amb barbacoa= " + terrassa + " .";
+        return super.toString() + " Mobil-Home{Terrassa amb barbacoa= " + terrassa + "}}";
     }
 
     /**
@@ -41,22 +41,4 @@ public class MobilHome extends Casa {
         return terrassa;
     }
 
-
-    /**
-     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
-     *
-     * @param tasca Objecte de tipus TascaManteniment.
-     */
-    @Override
-    public void tancarAllotjament(TascaManteniment tasca) {
-
-    }
-
-    /**
-     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
-     */
-    @Override
-    public void obrirAllotjament() {
-
-    }
 }

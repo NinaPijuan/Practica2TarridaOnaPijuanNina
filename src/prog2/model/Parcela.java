@@ -1,6 +1,5 @@
 package prog2.model;
 
-// ELS DOS ÚLTIMS MÈTODES JA ESTAN A ALLOTJAMENT, ELS PODEM TREURE D'AKUÍ, NO?
 public class Parcela extends Allotjament {
 
     private float mida; // en m2
@@ -44,25 +43,15 @@ public class Parcela extends Allotjament {
      */
     public void setConnexioElectrica(boolean connexioElectrica){ this.connexioElectrica = connexioElectrica; }
 
-
-    /**
-     * Una parcel·la té un funcionament correcte si té punt de connexió elèctrica
-     * @return true si té electricitat, false si no
-     */
-    /* @Override
-    public boolean correcteFuncionament(){
-        return connexioElectrica;
-    }
-
-     */
-
     /**
      * Obté tota la informació de la classe
      * @return un string
      */
     @Override
     public String toString(){
-        return super.toString();
+        return super.toString() + " Parcela{mida= " +
+                mida + ", connexio electrica= " +
+                connexioElectrica + "}";
     }
 
     /**
@@ -70,24 +59,4 @@ public class Parcela extends Allotjament {
      * @return connexioElectrica
      */
     public boolean isConnexioElectrica() { return connexioElectrica;}
-
-    /**
-     * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
-     *
-     * @param tasca Objecte de tipus TascaManteniment.
-     */
-    @Override
-    public void tancarAllotjament(TascaManteniment tasca) {
-
-
-
-    }
-
-    /**
-     * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
-     */
-    @Override
-    public void obrirAllotjament() {
-
-    }
 }

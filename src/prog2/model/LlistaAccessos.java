@@ -17,7 +17,13 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
         this.llistaAccessos = new ArrayList<Acces>();
     }
 
+    public void setLlistaAccessos(ArrayList<Acces> llistaAccessos) {
+        this.llistaAccessos = llistaAccessos;
+    }
 
+    public ArrayList<Acces> getLlistaAccessos() {
+        return llistaAccessos;
+    }
 
     /**
      * Afegeix un accés rebut per paràmetre a la llista d'accessos.
@@ -65,9 +71,11 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
         for (int i = 0; i < llistaAccessos.size(); i++) {
             if (llistaAccessos.get(i).getEstat() == estat) {
                 resultat += llistaAccessos.get(i).toString();
-                resultat += " ";
+                resultat += "\n";
             }
         }
+
+        if (resultat.equals("")){ throw new ExcepcioCamping("No hi ha cap acces " + ((estat) ? "obert" : "tancat")); }
 
         return resultat;
     }

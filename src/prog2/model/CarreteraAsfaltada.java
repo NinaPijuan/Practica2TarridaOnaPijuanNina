@@ -27,11 +27,17 @@ public class CarreteraAsfaltada extends AccesAsfalt {
         String acces = isAccessibilitat() ? "Sí" : "No";
 
         String allotjaments = "";
-        for(int i = 0; i < getAAllotjaments().getLlistaAllotjaments().size(); i++){
-            allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getNom();
-            allotjaments += " ";
+
+        int midaLlista = getAAllotjaments().getLlistaAllotjaments().size();
+
+        if (midaLlista == 0) allotjaments = "Cap";
+        else {
+            for(int i = 0; i < midaLlista; i++) {
+                allotjaments += getAAllotjaments().getLlistaAllotjaments().get(i).getId();
+                if (i != midaLlista - 1) allotjaments += ", ";
+            }
         }
-        return super.toString() + "Tipus: Carretera asfaltada, Metres quadrats: " + getM2Asfalt() +
+        return super.toString() + ", Tipus: Carretera asfaltada, Metres quadrats: " + getM2Asfalt() +
                 ", Pes màxim: " + pesMax + ", Accessibilitat: " + acces + ", Allotjaments: " + allotjaments + ".";
     }
 }
