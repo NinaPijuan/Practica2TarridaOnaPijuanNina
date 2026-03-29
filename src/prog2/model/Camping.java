@@ -150,8 +150,6 @@ public class Camping implements InCamping, Serializable {
      */
     @Override
     public void save(String camiDesti) throws ExcepcioCamping {
-        // HI HA VÀRIES MANERES DE FER TOT EL ROLLO DEL TRY-CATCH. LA LAURA A CLASSE VA FER LA DEL MÈTODE load
-
         // Creem el fitxer
         File fitxer = new File(camiDesti);
 
@@ -164,7 +162,7 @@ public class Camping implements InCamping, Serializable {
             // Escrivim el Camping (this)
             oos.writeObject(this);
 
-            // Tankuem canals
+            // Tanquem canals
             fos.close();
             oos.close();
 
@@ -220,6 +218,8 @@ public class Camping implements InCamping, Serializable {
 
     /**
      * Inicialitza les dades del càmping amb valors predeterminats.
+     *
+     * @throws ExcepcioCamping
      */
     @Override
     public void inicialitzaDadesCamping() throws ExcepcioCamping {

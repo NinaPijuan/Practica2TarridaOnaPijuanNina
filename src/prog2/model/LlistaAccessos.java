@@ -17,10 +17,20 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
         this.llistaAccessos = new ArrayList<Acces>();
     }
 
+    /**
+     * Estableix la llista d'accessos.
+     *
+     * @param llistaAccessos nova llista d'accessos
+     */
     public void setLlistaAccessos(ArrayList<Acces> llistaAccessos) {
         this.llistaAccessos = llistaAccessos;
     }
 
+    /**
+     * Obté la llista d'accessos.
+     *
+     * @return ArrayList amb tots els accessos
+     */
     public ArrayList<Acces> getLlistaAccessos() {
         return llistaAccessos;
     }
@@ -34,7 +44,7 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
     @Override
     public void afegirAcces(Acces acc) throws ExcepcioCamping {
 
-        // Comprovem k acc sigui nou:
+        // Comprovem que l'acces sigui nou:
         for(int i = 0; i < llistaAccessos.size(); i++){
             if (llistaAccessos.get(i).getNom().equals(acc.getNom())){
                 throw new ExcepcioCamping(acc.getNom() + " ja existeix"); }
@@ -67,7 +77,7 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
         if(llistaAccessos.isEmpty()){ throw new ExcepcioCamping("No hi ha accessos"); }
 
         String resultat = "";
-        // Fem un recorregut per concatenar la informació dels accessos k son amb l'estat k volem
+        // Fem un recorregut per concatenar la informació dels accessos que son amb l'estat que volem
         for (int i = 0; i < llistaAccessos.size(); i++) {
             if (llistaAccessos.get(i).getEstat() == estat) {
                 resultat += llistaAccessos.get(i).toString();
@@ -92,11 +102,11 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
         for(int i = 0; i < llistaAccessos.size(); i++){
             Acces actual = llistaAccessos.get(i);
 
-            // A cada accés li agafem la llista d'allotjaments k connecta
+            // A cada accés li agafem la llista d'allotjaments que connecta
             LlistaAllotjaments llistaAllotjaments = actual.getAAllotjaments();
 
-            // Amb el mètode cointainsAllo...() de LlistaAllotjaments mirem si connecta algun allot-
-            // jament operatiu, si no -> el tankuem amb el mètode de d'Accés k fa akuesta feina o l'obrim
+            // Amb el mètode cointainsAllo...() de LlistaAllotjaments mirem si connecta algun allotjament
+            // operatiu, si no -> el tanquem amb el mètode de d'Accés que fa aquesta feina o l'obrim
             if (!llistaAllotjaments.containsAllotjamentOperatiu()){ actual.tancarAcces(); }
             else{ actual.obrirAcces(); }
 
