@@ -11,6 +11,14 @@ public class TascaManteniment implements InTascaManteniment, Serializable {
     public static enum TipusTascaManteniment { Reparacio, Neteja, RevisioTecnica, Desinfeccio };
     private TipusTascaManteniment tipus_;
 
+    /**
+     * Constructor
+     * @param num_
+     * @param tipus_
+     * @param allotjament_
+     * @param data_
+     * @param dies_
+     */
     public TascaManteniment(int num_, TipusTascaManteniment tipus_, Allotjament allotjament_, String data_, int dies_) {
         this.num_ = num_;
         this.tipus_ = tipus_;
@@ -19,7 +27,10 @@ public class TascaManteniment implements InTascaManteniment, Serializable {
         this.dies_ = dies_;
     }
 
-
+    /**
+     * toString
+     * @return informació de la TascaManteniment en un String
+     */
     @Override
     public String toString(){
 

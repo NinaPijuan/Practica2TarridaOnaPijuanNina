@@ -11,6 +11,11 @@ public abstract class Acces implements InAcces, Serializable {
     private boolean estat; // obert o tancat
     private LlistaAllotjaments llistaAllotjaments;
 
+    /**
+     * Constructor
+     * @param nom
+     * @param estat
+     */
     public Acces(String nom, boolean estat) {
         this.nom = nom;
         this.accessibilitat = isAccessibilitat();
@@ -18,6 +23,10 @@ public abstract class Acces implements InAcces, Serializable {
         this.llistaAllotjaments = new LlistaAllotjaments();
     }
 
+    /**
+     * toString
+     * @return informació de l'Acces en format String
+     */
     @Override
     public String toString(){
         return "Nom: " + nom;
@@ -54,7 +63,7 @@ public abstract class Acces implements InAcces, Serializable {
     /**
      * Retorna si l'accés permet accessibilitat amb cotxe o no.
      *
-     * @return
+     * @return true o false depenent de cada accés
      */
     @Override
     public abstract boolean isAccessibilitat();
@@ -62,7 +71,7 @@ public abstract class Acces implements InAcces, Serializable {
     /**
      * Retorna el nom de l'accés
      *
-     * @return
+     * @return nom
      */
     @Override
     public String getNom() { return nom; }
@@ -70,7 +79,7 @@ public abstract class Acces implements InAcces, Serializable {
     /**
      * Retorna l'estat de l'accés (obert o tancat)
      *
-     * @return
+     * @return estat
      */
     @Override
     public boolean getEstat() { return estat; }
@@ -78,7 +87,7 @@ public abstract class Acces implements InAcces, Serializable {
     /**
      * Retorna la llista d'allotjaments associats a l'accés
      *
-     * @return
+     * @return llistaAllotjaments
      */
     @Override
     public LlistaAllotjaments getAAllotjaments() { return llistaAllotjaments; }

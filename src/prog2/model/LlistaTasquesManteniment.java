@@ -10,6 +10,9 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
 
     private ArrayList<TascaManteniment> llistaTasquesManteniment;
 
+    /**
+     * Constructor
+     */
     public LlistaTasquesManteniment() {
         this.llistaTasquesManteniment = new ArrayList<TascaManteniment>();
     }
@@ -71,18 +74,6 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
                 allotjament.setIluminacio("0%");
                 break;
         }
-
-        /*
-        if (allotjament.isOperatiu()){
-            TascaManteniment tasca =  new TascaManteniment(num, enumTasca, allotjament, data, dies);
-            llistaTasquesManteniment.add(tasca);
-            allotjament.setOperatiu(false); }
-
-        else{ throw new ExcepcioCamping("L'allotjament ja té una tasca pendent"); }
-        */
-
-
-
     }
 
     /**
@@ -143,8 +134,6 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
         }
         return resultat;
     }
-
-
 
     /**
      * Busca la tasca amb el número rebut per paràmetre i la retorna.

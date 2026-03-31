@@ -9,7 +9,6 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
 
     private ArrayList<Acces> llistaAccessos;
 
-
     /**
      * Constructor
      */
@@ -60,7 +59,6 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
      */
     @Override
     public void buidar() { llistaAccessos.clear(); }
-
 
     /**
      * Itera sobre la llista d'accessos i retorna un String amb la informació de tots els accessos amb l'estat rebut per paràmetre.

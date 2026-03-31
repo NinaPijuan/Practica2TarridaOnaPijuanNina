@@ -35,6 +35,10 @@ public class VistaCamping {
             "Sortir de l'aplicació",
     };
 
+    /**
+     * Inicialitza les dades del càmping
+     * @param nomCamping
+     */
     public VistaCamping(String nomCamping) {
         this.camping = new Camping(nomCamping);
         try {
@@ -44,6 +48,9 @@ public class VistaCamping {
         }
     }
 
+    /**
+     * Mètode per gestionar el càmping a través del menú
+     */
     public void gestioCamping() {
         Scanner sc = new Scanner(System.in);
 

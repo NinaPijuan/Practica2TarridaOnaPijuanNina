@@ -14,7 +14,6 @@ public abstract class Allotjament implements InAllotjament, Serializable {
     private boolean operatiu;
     private String iluminacio;
 
-
     /**
      * Constructor amb paràmetres
      */
@@ -25,7 +24,6 @@ public abstract class Allotjament implements InAllotjament, Serializable {
         this.iluminacio = iluminacio;
         this.operatiu = operatiu;
     }
-
 
     /**
      * Obté el nom de l'allotjament.
@@ -64,8 +62,6 @@ public abstract class Allotjament implements InAllotjament, Serializable {
         }
     }
 
-
-
     /**
      * Estableix l'estada mínima per a cada temporada.
      * @param estadaMinimaALTA_ l'estada mínima en temporada alta.
@@ -76,22 +72,37 @@ public abstract class Allotjament implements InAllotjament, Serializable {
         this.estadaMinimaALTA_ = estadaMinimaALTA_;
     }
 
+    /**
+     * Retorna si l'allotjament està operatiu
+     * @return true o false
+     */
     public boolean isOperatiu() {
         return operatiu;
     }
 
+    /**
+     * Estableix l'allotjament operatiu o no operatiu
+     * @param operatiu
+     */
     public void setOperatiu(boolean operatiu) {
         this.operatiu = operatiu;
     }
 
+    /**
+     * Retorna la il·lumnació de l'allotjament
+     * @return iluminacio
+     */
     public String getIluminacio() {
         return iluminacio;
     }
 
+    /**
+     * Estableix la il·luminació de l'allotjament
+     * @param iluminacio
+     */
     public void setIluminacio(String iluminacio) {
         this.iluminacio = iluminacio;
     }
-
 
     /**
      * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre

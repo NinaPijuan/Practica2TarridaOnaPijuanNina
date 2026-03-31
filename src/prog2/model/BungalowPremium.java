@@ -36,7 +36,6 @@ public class BungalowPremium extends Bungalow {
     public void setServeisExtra(boolean serveisExtra){ this.serveisExtra = serveisExtra; }
     public void setWifi(String wifi){ this.wifi = wifi; }
 
-
     /**
      * Obté la informació de la classe
      * @return un string
@@ -45,7 +44,6 @@ public class BungalowPremium extends Bungalow {
     public String toString(){
         return super.toString() + " Premium{Serveix extra= " + serveisExtra + ", clau del wifi= " + wifi + "}}";
     }
-
 
     /**
      * Un bungalow Prenium funciona bé si té aire i el seu codi wifi té entre 8 i 16 caràcters

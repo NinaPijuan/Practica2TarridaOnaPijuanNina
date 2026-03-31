@@ -15,6 +15,10 @@ public class Camping implements InCamping, Serializable {
     private LlistaAccessos llistaAccessos;
     private LlistaTasquesManteniment llistaTasquesManteniment;
 
+    /**
+     * Constructor
+     * @param nom
+     */
     public Camping(String nom) {
         this.nom = nom;
         this.llistaAllotjaments = new LlistaAllotjaments();
@@ -214,7 +218,6 @@ public class Camping implements InCamping, Serializable {
         return camping;
 
     }
-
 
     /**
      * Inicialitza les dades del càmping amb valors predeterminats.
